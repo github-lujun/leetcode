@@ -19,9 +19,9 @@ public class leet01 {
     public static void main(String[] args) {
         int[] twoSum = new leet01().twoSum(new int[]{2,7,11,15}, 9);
         if(twoSum[0]==0&&twoSum[1]==1){
-            System.out.println("ac");
+            System.out.println("通过");
         }else{
-            System.out.println("");
+            System.out.println("解答错误");
         }
         
     }
