@@ -23,8 +23,8 @@ package com.jun.leetcode;
  */
 public class leet03{
     public static void main(String[] args) {
-        int length = new leet03().lengthOfLongestSubstring("abcabcbb");
-        if(length==3){
+        int length = new leet03().lengthOfLongestSubstring("au");
+        if(length==2){
             System.out.println("通过");
         }else{
             System.out.println("解答错误");
@@ -32,7 +32,23 @@ public class leet03{
     }
 
     public int lengthOfLongestSubstring(String s) {
-        
-        return 0;
+        int maxLength=0;
+        char[] charArray = s.toCharArray();
+        for(int i=0;i<charArray.length;i++){
+            int length = 0;
+            java.util.Set<Character> set = new java.util.HashSet<>();
+            for(int j=i;j<charArray.length;j++){
+                if(!set.contains(charArray[j])){
+                    set.add(charArray[j]);
+                    length = set.size();
+                }else{
+                    break;
+                }
+            }
+            if(length>maxLength){
+                maxLength = length;
+            }
+        }
+        return maxLength;
     }
 }
