@@ -21,8 +21,8 @@ package com.jun.leetcode;
 // 则中位数是 (2 + 3)/2 = 2.5
 public class leet04{
     public static void main(String[] args) {
-        double v = new leet04().findMedianSortedArrays(new int[]{1,3},new int[]{2});
-        if(v==2.0){
+        double v = new leet04().findMedianSortedArrays(new int[]{1,2},new int[]{3,4});
+        if(v==2.5){
             System.out.println("通过");
         }else{
             System.out.println("解答错误");
@@ -30,6 +30,14 @@ public class leet04{
     }
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        return Double.MIN_VALUE;
+        int[] nums = new int[nums1.length+nums2.length];
+        System.arraycopy(nums1, 0, nums, 0, nums1.length);
+        System.arraycopy(nums2, 0, nums, nums1.length, nums2.length);
+        java.util.Arrays.sort(nums);
+        if(nums.length%2==1){
+            return nums[nums.length/2];
+        }else{
+            return (nums[nums.length/2-1]+nums[nums.length/2])/2.0;
+        }
     }
 }
